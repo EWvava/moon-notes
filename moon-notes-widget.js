@@ -33,7 +33,7 @@ function txt(parent, s, font, color) {
 function buildMedium(d, now) {
   const w = new ListWidget();
   w.backgroundColor = BG;
-  w.setPadding(12, 16, 11, 16);
+  w.setPadding(11, 16, 10, 16);
 
   const head = w.addStack();
   head.bottomAlignContent();
@@ -44,32 +44,32 @@ function buildMedium(d, now) {
   head.addSpacer();
   txt(head, "☽ " + d.moon, Font.mediumRoundedSystemFont(10), SUB);
 
-  w.addSpacer(8);
+  w.addSpacer(7);
   const tiles = w.addStack();
   tiles.backgroundColor = Color.white();
   tiles.cornerRadius = 12;
-  tiles.setPadding(7, 4, 8, 4);
+  tiles.setPadding(6, 4, 7, 4);
   tiles.centerAlignContent();
   const items = [["宜", d.yi, BLUE], ["忌", d.ji, ROSE], ["今日忠告", d.tip, APRICOT]];
   items.forEach((it, i) => {
     if (i > 0) {
       const sep = tiles.addStack();
-      sep.size = new Size(1, 30);
+      sep.size = new Size(1, 32);
       sep.backgroundColor = LINE;
     }
     tiles.addSpacer();
     const cell = tiles.addStack();
     cell.layoutVertically();
     cell.centerAlignContent();
-    const l = txt(cell, it[0], Font.systemFont(9), SUB);
+    const l = txt(cell, it[0], Font.systemFont(10.5), SUB);
     l.centerAlignText();
-    cell.addSpacer(3);
-    const v = txt(cell, it[1], Font.semiboldRoundedSystemFont(13), it[2]);
+    cell.addSpacer(2);
+    const v = txt(cell, it[1], Font.semiboldRoundedSystemFont(15), it[2]);
     v.centerAlignText(); v.lineLimit = 1; v.minimumScaleFactor = 0.7;
     tiles.addSpacer();
   });
 
-  w.addSpacer(8);
+  w.addSpacer(7);
   const t = txt(w, d.first, Font.systemFont(12), BODY);
   t.lineLimit = 2;
   return w;
