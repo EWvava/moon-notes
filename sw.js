@@ -1,6 +1,6 @@
 // 先联网取最新内容，没网时用缓存，保证离线也能看
-const CACHE = 'moon-notes-v1';
-const ASSETS = ['./', './index.html', './data.json', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+const CACHE = 'moon-notes-v2';
+const ASSETS = ['./', './index.html', './data.json', './manifest.json', './icon-192-v2.png', './icon-512-v2.png', './apple-touch-icon-v2.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
   self.skipWaiting();
